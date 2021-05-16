@@ -16,21 +16,29 @@ fn main(){
         let t = t.trim().chars().collect::<Vec<char>>();
         let m = t.len();
 
+        let mut cnt:u32 = 0;
 
+        let mut idxs:Vec<usize> = Vec::new();
+
+        for (i,w) in s.windows(m).enumerate() {
+            if w == t {
+                idxs.push(i);
+            }
+        }
 
         for l in 0..(n) {
             for r in (l+1)..(n+1) {
-                let sub = &s[l..r];
                 let mut good = true;
-                for w in sub.windows(m) {
-                    if w == t {
+                for &i in &idxs {
+                    if (m <= r) && (l <= i) && (i <= r - m) {
                         good = false;
                         break;
-                    }
+                    } 
                 }
-
                 if good {
                     cnt += 1;
+                } else {
+                    break;
                 }
             }
         }
