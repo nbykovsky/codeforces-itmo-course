@@ -16,32 +16,23 @@ fn main(){
         let t = t.trim().chars().collect::<Vec<char>>();
         let m = t.len();
 
-        let mut cnt:u32 = 0;
+        let mut cnt:usize = 0;
 
-        let mut idxs:Vec<usize> = Vec::new();
+        let mut l:usize = 0;
+        let mut r:usize = 0;
 
-        for (i,w) in s.windows(m).enumerate() {
-            if w == t {
-                idxs.push(i);
-            }
-        }
+        while r <= n {
+            if r - l >= m {
+                let su = &s[r - m..r];
 
-        for l in 0..(n) {
-            for r in (l+1)..(n+1) {
-                let mut good = true;
-                for &i in &idxs {
-                    if (m <= r) && (l <= i) && (i <= r - m) {
-                        good = false;
-                        break;
-                    } 
-                }
-                if good {
-                    cnt += 1;
-                } else {
-                    break;
+                if su == t {
+                    l = r - m + 1;
                 }
             }
+            cnt += r - l;
+            r += 1;
         }
+
         println!("{}", cnt);
 
     }
