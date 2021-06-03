@@ -65,7 +65,6 @@ fn main(){
       io::stdin().read_line(&mut line).expect("unable to read");
       let nums:Vec<u32> = line.trim().split(" ").map(|x| x.trim().parse().unwrap()).collect();
       let (k,j) = (nums[0], nums[1]);
-      // println!("k={}, j={}", k,j);
 
       println!("{}", helper(k, j));
 
@@ -73,23 +72,19 @@ fn main(){
 }
 
 fn helper(k:u32, j:u32) -> u32 {
-   // println!("k={}, j={}", k,j);
+   let n:u32 = u32::pow(2, k) - 1 - 2;
    if k == 1 || j < 2  {
       return 0;
-   }
-   let n:u32 = u32::pow(2, k) - 1 - 2;
-
-   // println!("k={}, j={}, n={}, n/2={}", k,j,n,n/2);
-   if j == (n/2 + 2) {
-      return u32::pow(2, k-1) - 1; //2*k-1;
-   }
-   if j == (n/2 + 1) || j == (n/2 + 3) {
+   }else if j == (n/2 + 2) {
+      return u32::pow(2, k-1) - 1; 
+   } else if j == (n/2 + 1) || j == (n/2 + 3) {
       return 0;
-   }
-   if j < n/2+1 {
+   } else if j < n/2+1 {
       return helper(k-1, j);
+   } else {
+      // j > n/2 + 2
+      return helper(k-1, j - 2 - n/2);
    }
-   return helper(k-1, j - 2 - n/2);
 
 }
 
