@@ -12,6 +12,6 @@ fn main(){
             z[i] += 1;
         }
     }
-    println!("{}", z.iter().map(|x| x.to_string()).collect::<Vec<String>>().join(" "))
+    println!("{}", z.iter().map(|x| x.to_string()).collect::<Vec<String>>().join(""))
 
 }
