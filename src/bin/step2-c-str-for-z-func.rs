@@ -44,7 +44,6 @@ fn main() {
                     if nums[j as usize] > i - j{
                         match cand {
                             Some(c) if c != result[i-j] => {
-                                //println!("c={} result[i-j]={}", c, result[i-j]);
                                 good = false;
                                 break 'outer;
                             }
@@ -67,7 +66,6 @@ fn main() {
 
             }
         }
-        // println!("{:?}", result);
         if !good || z_func(&result) != nums{
             println!("!")
         } else {
@@ -75,7 +73,6 @@ fn main() {
         }
     }
 
-    // println!("{:?}", table);
 }
 
 fn z_func(line: &Vec<char>) -> Vec<usize> {
@@ -89,10 +86,3 @@ fn z_func(line: &Vec<char>) -> Vec<usize> {
     }
     return z;
 }
-
-/*
-
-A B A C A B A D A B A C A B A
-a b a c a b a z a b a c a b a
-
-*/
