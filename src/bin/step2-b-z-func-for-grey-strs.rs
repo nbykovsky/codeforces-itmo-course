@@ -1,58 +1,5 @@
 use std::io;
 
-/*
-
-a
-0
-
-aba
-001
-
-abacaba
-0010301
-
-abacabadabacaba
-001030107010301
-
-abacabadabacabaea bacabadabacaba
-00103010701030101501030107010301
-
-len_i = 2 ^ i - 1
-
-if i < 2:
-   return 0
-elif
-
-7
-3 0
-3 1
-3 2
-3 3
-3 4
-3 5
-3 6
-
-16
-4 0
-4 1
-4 2
-4 3
-4 4
-4 5
-4 6
-4 7
-4 8
-4 9
-4 10
-4 11
-4 12
-4 13
-4 14
-4 15
-
-
-*/
-
 
 fn main(){
    let mut line = String::new();
