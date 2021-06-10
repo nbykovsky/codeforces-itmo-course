@@ -7,7 +7,11 @@ fn main() {
     io::stdin().read_line(&mut line).expect("Unable to read");
     let q:usize = line.trim().parse().unwrap();
 
-    let lines:Vec<String> = io::stdin().lock().lines().map(|x| x.unwrap().trim().to_string()).collect();
+    let lines:Vec<String> = io::stdin()
+    .lock()
+    .lines()
+    .map(|x| x.unwrap().trim().to_string())
+    .collect();
 
     for i in 0..q {
 
